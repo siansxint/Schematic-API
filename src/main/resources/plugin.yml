@@ -1,0 +1,5 @@
+name: Schematic-API
+version: ${project.version}
+main: net.sintaxis.schematics.schematicapi.SchematicAPI
+api-version: 1.16
+authors: [ Sintaxis ]
