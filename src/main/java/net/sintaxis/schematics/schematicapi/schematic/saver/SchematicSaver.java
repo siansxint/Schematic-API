@@ -1,12 +1,7 @@
 package net.sintaxis.schematics.schematicapi.schematic.saver;
 
 import net.sintaxis.schematics.schematicapi.schematic.SchematicData;
-import org.jnbt.ByteArrayTag;
-import org.jnbt.CompoundTag;
-import org.jnbt.NBTOutputStream;
-import org.jnbt.ShortTag;
-import org.jnbt.StringTag;
-import org.jnbt.Tag;
+import org.jnbt.*;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -26,6 +21,7 @@ public class SchematicSaver {
         ShortTag height = new ShortTag("Height", schematicData.getHeight());
         ByteArrayTag blocks = new ByteArrayTag("Blocks", schematicData.getBlocks());
         StringTag stringTag = new StringTag("Materials", "Alpha");
+        ListTag tileEntitiesTag = new ListTag("TileEntities",CompoundTag.class,schematicData.getTileEntities());
 
         Map<String, Tag> stringTagMap = new HashMap<>();
         stringTagMap.put("Width", width);
@@ -33,6 +29,7 @@ public class SchematicSaver {
         stringTagMap.put("Height", height);
         stringTagMap.put("Blocks", blocks);
         stringTagMap.put("Materials", stringTag);
+        stringTagMap.put("TileEntities",tileEntitiesTag);
 
         CompoundTag compoundTag = new CompoundTag("Schematic", stringTagMap);
         nbtOutputStream.writeTag(compoundTag);

@@ -13,6 +13,7 @@ public class SchematicPaster {
         short height = schematicData.getHeight();
         location.subtract(width / 2.00, height / 2.00, length / 2.00);
         byte[] blocks = schematicData.getBlocks();
+
         for (int x = 0; x < width; ++x) {
             for (int y = 0; y < height; ++y) {
                 for (int z = 0; z < length; ++z) {
@@ -25,5 +26,8 @@ public class SchematicPaster {
                 }
             }
         }
+
+
+
     }
 }
