@@ -19,19 +19,24 @@ public class SchematicParser {
     public SchematicData parseFileToSchematic(File file) throws IOException {
         FileInputStream stream = new FileInputStream(file);
         NBTInputStream nbtStream = new NBTInputStream(stream);
+
         CompoundTag schematicTag = (CompoundTag) nbtStream.readTag();
+
         stream.close();
         nbtStream.close();
+
         Map<String, Tag> schematic = schematicTag.getValue();
         short width = ChildTagUtil.getChildTag(schematic, "Width", ShortTag.class).getValue();
         short length = ChildTagUtil.getChildTag(schematic, "Length", ShortTag.class).getValue();
         short height = ChildTagUtil.getChildTag(schematic, "Height", ShortTag.class).getValue();
         String materials = ChildTagUtil.getChildTag(schematic, "Materials", StringTag.class).getValue();
+
         if (!materials.equals("Alpha")) {
             throw new IllegalArgumentException("Schematic file is not an Alpha schematic");
         }
+
         byte[] blocks = ChildTagUtil.getChildTag(schematic, "Blocks", ByteArrayTag.class).getValue();
-        byte[] blockData = ChildTagUtil.getChildTag(schematic, "Data", ByteArrayTag.class).getValue();
-        return new SchematicData(width, length, height, blocks, blockData);
+
+        return new SchematicData(width, length, height, blocks);
     }
 }
