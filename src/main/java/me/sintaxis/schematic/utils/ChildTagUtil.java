@@ -1,4 +1,4 @@
-package net.sintaxis.schematics.schematicapi.utils;
+package me.sintaxis.schematic.utils;
 
 import org.jnbt.Tag;
 

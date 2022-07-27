@@ -1,4 +1,4 @@
-package net.sintaxis.schematics.schematicapi.utils;
+package me.sintaxis.schematic.utils;
 
 import net.minecraft.server.v1_8_R3.BlockPosition;
 import net.minecraft.server.v1_8_R3.IBlockData;

@@ -1,7 +1,11 @@
-package net.sintaxis.schematics.schematicapi.schematic;
+package me.sintaxis.schematic;
 
-
-public class SchematicData {
+/**
+ * Schematic model class.
+ *
+ *
+ */
+public class Schematic {
 
     private final short width;
     private final short length;
@@ -9,7 +13,7 @@ public class SchematicData {
     private final byte[] blocks;
     private final byte[] data;
 
-    public SchematicData(short width, short length, short height, byte[] blocks, byte[] data) {
+    public Schematic(short width, short length, short height, byte[] blocks, byte[] data) {
         this.blocks = blocks;
         this.data = data;
         this.width = width;
